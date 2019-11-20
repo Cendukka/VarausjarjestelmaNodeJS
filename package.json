@@ -1,0 +1,24 @@
+{
+  "name": "varausjarjestelmanodejs",
+  "version": "1.0.0",
+  "description": "Project for reservation system",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Cendukka/VarausjarjestelmaNodeJS.git"
+  },
+  "keywords": [
+    "node",
+    "express",
+    "project"
+  ],
+  "author": "Samuli Lehtonen, Eveliina Korjus, Aleksi Kouhi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Cendukka/VarausjarjestelmaNodeJS/issues"
+  },
+  "homepage": "https://github.com/Cendukka/VarausjarjestelmaNodeJS#readme"
+}
