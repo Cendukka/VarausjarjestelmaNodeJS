@@ -20,5 +20,13 @@
   "bugs": {
     "url": "https://github.com/Cendukka/VarausjarjestelmaNodeJS/issues"
   },
-  "homepage": "https://github.com/Cendukka/VarausjarjestelmaNodeJS#readme"
+  "homepage": "https://github.com/Cendukka/VarausjarjestelmaNodeJS#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-ejs-layouts": "^2.5.0",
+    "mongodb": "^3.3.4"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.0"
+  }
 }
