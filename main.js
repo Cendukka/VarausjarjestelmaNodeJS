@@ -1,10 +1,11 @@
 "use strict"
 
-
+// Require all packages, models and other files
 const httpStatusCode = require("http-status-codes");
 const express = require("express");
 const layouts = require("express-ejs-layouts");
-const homeController = require("./controllers/homeController")
+const homeController = require("./controllers/homeController");
+const router = require("./routes/router");
 
 //Database related
 const mongoose = require("mongoose");
@@ -12,7 +13,7 @@ const MongoDB = require("mongodb").MongoClient;
 const db = mongoose.connection;
 const dbURL = "mongodb://localhost:27017";
 const dbName = "varausjarjestelma";
-
+// Set app port number and to use express
 const port = 3000;
 const app = express();
 
@@ -28,8 +29,9 @@ app.use((req, res, next) => {
     next();
 });
 
+// Routes
+app.use('/', router);
 
-app.get("/home", homeController.showHome);
 
 app.listen(port, () => {
     console.log(`Server running on port: ${port}`);
