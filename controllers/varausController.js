@@ -1,12 +1,13 @@
 "use strict";
 
-const Subscriber = require("../models/varaus");
+const varausModel = require("../models/varaus");
 
-exports.getAllSubscribers = (req, res) => {
-  Subscriber.find({})
+
+exports.getAllReservations = (req, res) => {
+  varausModel.find({})
     .exec()
     .then(varaus => {
-      res.render("varaa", {
+      res.render("varaukset", {
         varaus: varaus
       });
     })
@@ -24,16 +25,18 @@ exports.getReservationsPage = (req, res) => {
 };
 
 exports.saveReservation = (req, res) => {
-  let newVaraus = new Varaus({
+  
+  let newVaraus = new varausModel({
     name: req.body.name,
     sport: req.body.sport,
+    date: req.body.date,
     startTime: req.body.startTime,
     endTime: req.body.endTime
   });
   newVaraus
     .save()
     .then(result => {
-      res.render("thanks");
+      res.render("varaukset");
     })
     .catch(error => {
       if (error) res.send(error);
