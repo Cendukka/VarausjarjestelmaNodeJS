@@ -1,26 +1,32 @@
 "use strict";
 
 const mongoose = require("mongoose");
-const varausSchema = new mongoose.Schema({
+const varausSchema = mongoose.Schema({
   name: {
     type: String,
     required: true
   },
   sport: {
-    enum: [ "Sulkapallo", "Koripallo", "Sähly", "Tennis", null ],
+    type: String,
+    enum: [ "Sulkapallo", "Koripallo", "Sähly", "Tennis", "Jalkapallo" ]
+  },
+  date: {
+    type: Date,
     required: true
   },
   startTime: {
-    type: Date
+    type: Number,
+    required: true
   },
-    endTime: {
-    type: Date
+  endTime: {
+    type: Number,
+    required: true
   }
 });
 
-subscriberSchema.methods.getInfo = function() {
+/*subscriberSchema.methods.getInfo = function() {
   return `Name: ${this.name} Sport: ${this.sport} Start Time: ${this.startTime} End Time: ${this.endTime}`;
-};
+};*/
 
 
 module.exports = mongoose.model("Varaus", varausSchema);
