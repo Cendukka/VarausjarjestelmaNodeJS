@@ -1,5 +1,29 @@
 
 <div class="col-sm-6">
   <h1>Varaustilanne</h1>
-  <p></p>
+</div>
+
+<div id="reservationsTable">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Varaaja</th>
+        <th scope="col">Varattu laji</th>
+        <th scope="col">Päivämäärä</th>
+        <th scope="col">Alkamis aika</th>
+        <th scope="col">Loppumis aika</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% varaus.forEach(v => { %>
+      <tr>
+        <th scope="row"><%= v.name %></th>
+        <td> <%= v.sport %></td>
+        <td> <%= v.date %></td>
+        <td> <%= v.startTime %></td>
+        <td> <%= v.endTime %></td>
+      </tr>
+    <% });%>
+    </tbody>
+  </table>
 </div>
