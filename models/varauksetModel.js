@@ -1,4 +1,4 @@
-"use strict";
+/*"use strict";
 
 const mongoose = require("mongoose");
 const varausSchema = new mongoose.Schema({
@@ -16,11 +16,12 @@ const varausSchema = new mongoose.Schema({
     endTime: {
     type: Date
   }
-});
+},
+{ collection : 'reservations' });
 
-subscriberSchema.methods.getInfo = function() {
+/*subscriberSchema.methods.getInfo = function() {
   return `Name: ${this.name} Sport: ${this.sport} Start Time: ${this.startTime} End Time: ${this.endTime}`;
 };
 
 
-module.exports = mongoose.model("Varaus", varausSchema);
+module.exports = mongoose.model("Varaus", varausSchema);*/
