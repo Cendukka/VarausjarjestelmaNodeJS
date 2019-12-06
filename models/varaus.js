@@ -22,7 +22,7 @@ const varausSchema = mongoose.Schema({
     type: Number,
     required: true
   }
-});
+},{ collection : 'reservations' });
 
 /*subscriberSchema.methods.getInfo = function() {
   return `Name: ${this.name} Sport: ${this.sport} Start Time: ${this.startTime} End Time: ${this.endTime}`;
