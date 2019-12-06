@@ -15,15 +15,18 @@
       </tr>
     </thead>
     <tbody>
-      <% varaus.forEach(v => { %>
+      <!--
+        Here we loop from 0 to the length of reservers array and post the correct data from each spot
+      -->
+      <% for(i=0; i<=reservers.length;i++) { %>
       <tr>
-        <th scope="row"><%= v.name %></th>
-        <td> <%= v.sport %></td>
-        <td> <%= v.date %></td>
-        <td> <%= v.startTime %></td>
-        <td> <%= v.endTime %></td>
+        <th scope="row"><%= reservers[i] %></th>
+        <td> <%= sports[i] %></td>
+        <td> <%= dates[i] %></td>
+        <td> <%= startTimes[i] %></td>
+        <td> <%= endTimes[i] %></td>
       </tr>
-    <% });%>
+    <% };%>
     </tbody>
   </table>
 </div>
