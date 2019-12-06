@@ -20,6 +20,7 @@ const app = express();
 app.set("view engine", "ejs");
 app.use(layouts);
 app.use(express.static("public"));
+app.use(express.urlencoded());
 
 
 initDB();
