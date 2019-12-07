@@ -55,3 +55,14 @@ img {
 .reservation-form input {
   display: block;
 }
+
+.contact-listing {
+  width: 100%;
+  background: #aaa;
+  border-bottom: 1px solid #000;
+  display: inline-block;
+}
+
+.location {
+  padding: 5px;
+}
