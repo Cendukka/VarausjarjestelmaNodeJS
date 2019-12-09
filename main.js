@@ -6,6 +6,9 @@ const express = require("express");
 const layouts = require("express-ejs-layouts");
 const homeController = require("./controllers/homeController");
 const router = require("./routes/router");
+const expressSession = require("express-session");
+const cookieParser = require("cookie-parser");
+const connectFlash = require("connect-flash");
 
 //Database related
 const mongoose = require("mongoose");
@@ -62,10 +65,33 @@ function initDB() {
     mongoose.connect(
         "mongodb://localhost:27017/varausjarjestelma",
         { useNewUrlParser: true }
-    );
+        );
 
     db.once("open", () => {
         console.log("Successfully connected to MongoDB using Mongoose!")
         
     });
+    //Requiring flash messaging
+    const expressSession = require("express-session"),
+    cookieParser = require("cookie-parser"),
+    connectFlash = require("connect-flash");
+
+//allow creation of new users
+create: (req, res, next) => {
+    if (req.skip) next();
+    let newUser = new User( getUserParams(req.body) );
+    User.register(newUser, req.body.password, (error, user) => {
+        if (user) {
+            req.flash("success", `${user.fullName}'s account created
+                successfully!`);
+            res.locals.redirect = "/users";
+            next();
+        } else {
+            req.flash("error", `Failed to create user account because:
+                ${error.message}.`);
+            res.locals.redirect = "/users/new";
+            next();
+        }
+    });
+}
 }
