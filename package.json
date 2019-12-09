@@ -23,9 +23,12 @@
   },
   "homepage": "https://github.com/Cendukka/VarausjarjestelmaNodeJS#readme",
   "dependencies": {
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.4.4",
     "ejs": "^3.0.1",
     "express": "^4.17.1",
     "express-ejs-layouts": "^2.5.0",
+    "express-session": "^1.17.0",
     "http-status-codes": "^1.4.0",
     "moment": "^2.24.0",
     "mongodb": "^3.3.4",

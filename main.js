@@ -6,6 +6,9 @@ const express = require("express");
 const layouts = require("express-ejs-layouts");
 const homeController = require("./controllers/homeController");
 const router = require("./routes/router");
+const expressSession = require("express-session");
+const cookieParser = require("cookie-parser");
+const connectFlash = require("connect-flash");
 
 //Database related
 const mongoose = require("mongoose");
@@ -68,4 +71,8 @@ function initDB() {
         console.log("Successfully connected to MongoDB using Mongoose!")
         
     });
+    //Requiring flash messaging
+    const expressSession = require("express-session"),
+    cookieParser = require("cookie-parser"),
+    connectFlash = require("connect-flash");
 }
