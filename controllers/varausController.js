@@ -37,8 +37,7 @@ exports.getAllReservations = (req, res) => {
       });
     })
     .catch(error => {
-      console.log(error.message);
-      return [];
+      res.render("error");
     })
     .then(() => {
       console.log("promise complete");
@@ -59,14 +58,18 @@ exports.saveReservation = (req, res) => {
     startTime: req.body.startTime,
     endTime: req.body.endTime
   });
-  newVaraus
-    .save()
-    .then(result => {
-      let unformatedDate = moment(result.date);
-      let formatedDate = unformatedDate.format("DD/MM/YYYY");
-      res.render("kiitos", { result: result, date: formatedDate});
-    })
-    .catch(error => {
-      if (error) res.send(error);
-    });
+  if(newVaraus.startTime>newVaraus.endTime){
+    res.render("error");
+  }else{
+    newVaraus
+      .save()
+      .then(result => {
+        let unformatedDate = moment(result.date);
+        let formatedDate = unformatedDate.format("DD/MM/YYYY");
+        res.render("kiitos", { result: result, date: formatedDate});
+      })
+      .catch(error => {
+        if (error) res.render("error");
+      });
+  }
 };

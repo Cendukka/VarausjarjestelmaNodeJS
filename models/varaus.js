@@ -16,10 +16,14 @@ const varausSchema = mongoose.Schema({
   },
   startTime: {
     type: Number,
+    min: 12,
+    max: 18,
     required: true
   },
   endTime: {
     type: Number,
+    min:13,
+    max:19,
     required: true
   }
 },{ collection : 'reservations' });
