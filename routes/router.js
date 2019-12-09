@@ -5,10 +5,15 @@ const router = express.Router();
 const cookieParser = require("cookie-parser");
 const expressSession = require("express-session");
 const connectFlash = require("connect-flash");
+const passport = require("passport");
 
 const homeController = require("../controllers/homeController");
 const varausController = require("../controllers/varausController");
 const usersController = require("../controllers/usersController");
+
+router.use(passport.initialize());
+router.use(passport.session());
+
 
 router.use(express.json());
 router.use(cookieParser("secret_passcode"));
@@ -30,6 +35,14 @@ router.use((req, res, next) => {
 });
 
 
+//authenticate users
+const User = require("../models/user");
+passport.use(User.createStrategy());
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
+
+
 router.get("/", homeController.showHome);
 router.get("/login", homeController.showLogin);
 router.get("/reserve", homeController.showReserve);
@@ -37,7 +50,6 @@ router.post("/reserve/new", varausController.saveReservation)
 router.get("/reservations", varausController.getAllReservations);
 router.get("/contacts", homeController.showContacts);
 router.get("/rules", homeController.showRules);
-
 
 router.get("/users", usersController.index, usersController.indexView);
 router.get("/users/new", usersController.new);
