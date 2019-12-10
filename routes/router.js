@@ -59,7 +59,6 @@ router.put("/users/:id/update", usersController.update, usersController.redirect
 router.delete("/users/:id/delete", usersController.delete, usersController.redirectView);
 router.get("/users/:id", usersController.show, usersController.showView);
 
-router.get("/users/login", usersController.login);
 router.post("/users/login", usersController.authenticate,usersController.redirectView);
 
 

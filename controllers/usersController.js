@@ -92,8 +92,7 @@ module.exports = {
         last: req.body.last
       },
       email: req.body.email,
-      password: req.body.password,
-      zipCode: req.body.zipCode
+      password: req.body.password
     };
     User.findByIdAndUpdate(userId, {
       $set: userParams
@@ -121,7 +120,7 @@ module.exports = {
     });
   },
   login: (req, res) => {
-    res.render("users/login");
+    res.render("/login");
   },
   authenticate: (req, res, next) => {
     //query for one user by email.
@@ -138,14 +137,14 @@ module.exports = {
             res.locals.user = user;
           } else {
             req.flash("error", "Failed to log in user account: Incorrect Password.");
-            res.locals.redirect = "/users/login";
+            res.locals.redirect = "/login";
           }
           //Call the next middleware function with redirect path and flash message set
           next();
         });
       } else {
         req.flash("error", "Failed to log in user account: User account not found.");
-        res.locals.redirect = "/users/login";
+        res.locals.redirect = "/login";
         next();
       }
     })
