@@ -58,11 +58,20 @@ img {
 
 .contact-listing {
   width: 100%;
-  background: #aaa;
+  padding: 5px;
   border-bottom: 1px solid #000;
   display: inline-block;
 }
 
+.contact-container{
+  background: #aaa;
+}
+
 .location {
   padding: 5px;
+}
+
+#map {
+  height: 400px;
+  width: 100%;
 }
