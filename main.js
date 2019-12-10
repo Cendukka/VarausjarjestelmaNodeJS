@@ -51,15 +51,29 @@ function initDB() {
         }
 
         let db = client.db(dbName);
-
         //Create collections
-        db.createCollection("users", (err) => {
+        let collections = db.listCollections();
+        for (let i in collections) {
+            if(i !== "users"){
+                db.createCollection("users", (err) => {
+                    if (err) throw err;
+                });
+            }else if(i !== "reservations"){
+                db.createCollection("reservations", (err) => {
+                    if (err) throw err;
+                });
+            }else{
+                res.render("error");
+            }
+        }
+        
+        /*db.createCollection("users", (err) => {
             if (err) throw err;
         });
 
         db.createCollection("reservations", (err) => {
             if (err) throw err;
-        });
+        });*/
     });
 
     mongoose.connect(
