@@ -20,10 +20,6 @@ userSchema = new Schema(
     required: true,
     lowercase: true,
     unique: true
-  },
-  password: {
-    type: String,
-    required: true
   }
 },
 {
@@ -37,7 +33,7 @@ userSchema.virtual("fullName").get(function() {
 
  //Adding a hashing pre hook
  //Add a pre hook to the user schema.
- userSchema.pre("save", function(next) {
+ /*userSchema.pre("save", function(next) {
    let user = this;
    //Hash the user’s password.
    bcrypt.hash(user.password, 10).then(hash => {
@@ -54,7 +50,7 @@ userSchema.virtual("fullName").get(function() {
    let user = this;
    //Compare the user password with the stored password.
    return bcrypt.compare(inputPassword, user.password);
- };
+ };*/
 
 userSchema.plugin(passportLocalMongoose, {
   usernameField: "email"

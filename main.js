@@ -1,10 +1,8 @@
 "use strict"
 
 // Require all packages, models and other files
-const httpStatusCode = require("http-status-codes");
 const express = require("express");
 const layouts = require("express-ejs-layouts");
-const homeController = require("./controllers/homeController");
 const router = require("./routes/router");
 const expressSession = require("express-session");
 const cookieParser = require("cookie-parser");
