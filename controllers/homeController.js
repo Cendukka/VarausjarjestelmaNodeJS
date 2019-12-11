@@ -8,7 +8,11 @@ exports.showLogin = (req, res) => {
     res.render("login");
 };
 exports.showReserve = (req, res) => {
-    res.render("varaa");
+    if (req.user) {
+        res.render("varaa");
+    } else {
+        res.redirect('/login');
+    }
 };
 exports.showReservations = (req, res) => {
     res.render("varaukset");
