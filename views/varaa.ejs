@@ -5,7 +5,7 @@
       <h2>Luo uusi varaus:</h2>
       <label for="inputName">Nimi:</label>
       <% if (loggedIn) { %>
-        <input class="form-control" type="text" name="name" id="inputName"  value="<%= currentUser.firstName %></a>" autofocus required>
+        <input class="form-control" type="text" name="name" id="inputName"  value="<%= currentUser.fullName %>" autofocus required>
 
       <%} else {%>
         <input class="form-control" type="text" name="name" id="inputName"  placeholder="Nimesi" autofocus required>
