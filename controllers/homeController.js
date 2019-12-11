@@ -2,7 +2,14 @@
 
 
 exports.showHome = (req, res) => {
-    res.render("index");
+    console.log("jou"+req.user)
+    if (req.user) {
+        console.log("jou"+req.user)
+        res.render("index");
+    } else {
+        res.redirect('/login');
+    }
+    
 };
 exports.showLogin = (req, res) => {
     res.render("login");

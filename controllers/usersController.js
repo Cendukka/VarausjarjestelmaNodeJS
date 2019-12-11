@@ -64,7 +64,7 @@ module.exports = {
     })
     .catch(error => {
       console.log(`Error fetching user by ID: ${error.message}`);
-      next(error);
+      res.render("error");
     });
   },
   showView: (req, res) => {
@@ -127,4 +127,6 @@ module.exports = {
     successRedirect: "/",
     successFlash: "Logged in!"
   })
+  
+
 };

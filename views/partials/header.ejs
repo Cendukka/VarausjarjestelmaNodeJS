@@ -18,9 +18,13 @@
         <a href="/rules">
             <span class="button"> Säännöt </span>
         </a>
+        <% if (loggedIn) { %>
+        Logged in as <a href="<%= `/users/${currentUser._id}`%>"><%= currentUser.fullName %></a>
+        <%} else {%>
         <a href="/login">
-            <span class="button"> Kirjautuminen </span>
+            <span class="button"> Kirjaudu</span>
         </a>
+        <% } %>
         <a href="/users/new">
             <span class="button"> Rekisteröinti </span>
         </a>
