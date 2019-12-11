@@ -4,14 +4,20 @@ const bcrypt = require("bcrypt");
 const mongoose = require("mongoose"),
 { Schema } = mongoose,
 userSchema = new Schema(
-{
-  name: {
-    first: {
-      type: String, 
-      trim: true
+  {
+    name: {
+      first: {
+        type: String,
+        trim: true
+      },
+      last: {
+        type: String,
+        trim: true
+      }
     },
-    last: {
+    email: {
       type: String,
+<<<<<<< Updated upstream
       trim: true
     }
   },
@@ -25,6 +31,27 @@ userSchema = new Schema(
 {
   timestamps: true
 }
+=======
+      required: true,
+      lowercase: true,
+      unique: true
+    },
+    zipCode: {
+      type: Number,
+      min: [1000, "Zip code too short"],
+      max: 99999
+    },
+    password: {
+      type: String,
+      required: true
+    },
+    subscribedAccount: { type: Schema.Types.ObjectId, ref: "Subscriber" },
+    courses: [{ type: Schema.Types.ObjectId, ref: "Course" }]
+  },
+  {
+    timestamps: true
+  }
+>>>>>>> Stashed changes
 );
 
 userSchema.virtual("fullName").get(function() {

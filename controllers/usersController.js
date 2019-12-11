@@ -1,7 +1,13 @@
 "use strict";
 
+const passport = require("passport");
+
 const User = require("../models/user"),
+<<<<<<< Updated upstream
 passport = require("passport"),
+=======
+
+>>>>>>> Stashed changes
 getUserParams = body => {
   return {
     name: {
@@ -119,6 +125,7 @@ module.exports = {
     });
   },
   login: (req, res) => {
+<<<<<<< Updated upstream
     res.render("/login");
   },
   authenticate: passport.authenticate("local", {
@@ -127,4 +134,20 @@ module.exports = {
     successRedirect: "/",
     successFlash: "Logged in!"
   })
+=======
+    res.render("/users/:id");
+  },
+  authenticate: passport.authenticate("local", {
+    failureRedirect: "/login",
+    failureFlash: "Failed to login.",
+    successRedirect: "/users/:id",
+    successFlash: "Logged in!"
+  }),
+  logout: (req, res, next) => {
+    req.logout();
+    req.flash("success", "You have been logged out!");
+    res.locals.redirect = "/";
+    next();
+  }
+>>>>>>> Stashed changes
 };

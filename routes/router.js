@@ -41,7 +41,12 @@ passport.use(User.createStrategy());
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-
+router.use((req, res, next) => {
+  res.locals.loggedIn = req.isAuthenticated();
+  res.locals.currentUser = req.user;
+  res.locals.flashMessages = req.flash();
+  next();
+});
 
 router.get("/", homeController.showHome);
 router.get("/login", homeController.showLogin);
@@ -51,6 +56,7 @@ router.get("/reservations", varausController.getAllReservations);
 router.get("/contacts", homeController.showContacts);
 router.get("/rules", homeController.showRules);
 
+
 router.get("/users", usersController.index, usersController.indexView);
 router.get("/users/new", usersController.new);
 router.post("/users/create", usersController.create, usersController.redirectView);
@@ -59,7 +65,14 @@ router.put("/users/:id/update", usersController.update, usersController.redirect
 router.delete("/users/:id/delete", usersController.delete, usersController.redirectView);
 router.get("/users/:id", usersController.show, usersController.showView);
 
+<<<<<<< Updated upstream
 router.post("/users/login", usersController.authenticate,usersController.redirectView);
+=======
+
+router.get("/login", usersController.login);
+router.post("/login", usersController.authenticate,usersController.redirectView);
+
+>>>>>>> Stashed changes
 
 
 module.exports = router;
