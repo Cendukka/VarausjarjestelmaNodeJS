@@ -15,7 +15,7 @@
 
 <body>
 	<%- include('partials/header') %>
-<<<<<<< Updated upstream
+
 	<div class="flashes">
 		<% if (flashMessages) { %>
 		<% if (flashMessages.success) { %>
@@ -28,16 +28,13 @@
 		</div>
 		<% } %>
 		<% } %>
-	</div>
-=======
-	<%- include('partials/flashmessages') %>
 
->>>>>>> Stashed changes
-	<div class="container">
-		<%- body %>
-	</div>
 
-	<%- include('partials/footer') %>
-</body>
+		<div class="container">
+			<%- body %>
+		</div>
 
-</html>
+		<%- include('partials/footer') %>
+	</body>
+
+	</html>

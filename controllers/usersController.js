@@ -3,11 +3,6 @@
 const passport = require("passport");
 
 const User = require("../models/user"),
-<<<<<<< Updated upstream
-passport = require("passport"),
-=======
-
->>>>>>> Stashed changes
 getUserParams = body => {
   return {
     name: {
@@ -42,18 +37,18 @@ module.exports = {
     res.render("users/new");
   },
   create: (req, res, next) => {
-    if (req.skip) next();
-    let newUser = new User(getUserParams(req.body));
-    User.register(newUser, req.body.password, (error, user) => {
-      if (user) {
-        req.flash("success", `${user.fullName}'s account created successfully!`);
-        res.locals.redirect = "/users";
-        next();
-      } else {
-        req.flash("error", `Failed to create user account because: ${error.message}.`);
-        res.locals.redirect = "/users/new";
-        next();
-      }
+    if (req.skip) next(); 
+    let newUser = new User(getUserParams(req.body)); 
+    User.register(newUser, req.body.password, (error, user) => { 
+      if (user) { 
+        req.flash("success", `${user.fullName}'s account created successfully!`); 
+        res.locals.redirect = "/users"; 
+        next(); 
+      } else { 
+        req.flash("error", `Failed to create user account because: ${error.message}.`); 
+        res.locals.redirect = "/users/new"; 
+        next(); 
+      } 
     });
   },
   redirectView: (req, res, next) => {
@@ -125,29 +120,12 @@ module.exports = {
     });
   },
   login: (req, res) => {
-<<<<<<< Updated upstream
     res.render("/login");
   },
   authenticate: passport.authenticate("local", {
-    failureRedirect: "/users/login",
+    failureRedirect: "/error",
     failureFlash: "Failed to login.",
     successRedirect: "/",
     successFlash: "Logged in!"
   })
-=======
-    res.render("/users/:id");
-  },
-  authenticate: passport.authenticate("local", {
-    failureRedirect: "/login",
-    failureFlash: "Failed to login.",
-    successRedirect: "/users/:id",
-    successFlash: "Logged in!"
-  }),
-  logout: (req, res, next) => {
-    req.logout();
-    req.flash("success", "You have been logged out!");
-    res.locals.redirect = "/";
-    next();
-  }
->>>>>>> Stashed changes
 };

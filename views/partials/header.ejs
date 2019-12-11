@@ -18,26 +18,22 @@
         <a href="/rules">
             <span class="button"> Säännöt </span>
         </a>
-<<<<<<< Updated upstream
-        <a href="/login">
-            <span class="button"> Kirjautuminen </span>
-        </a>
-        <a href="/users/new">
-            <span class="button"> Rekisteröinti </span>
-        </a>
-    </div>
-</div>
-=======
-        
         <% if (loggedIn) { %>
         Logged in as
         <a href="<%=`/users/${currentUser._id}`%>">
             <%= currentUser.fullName %></a>
-        <%} else {%>
+            <%} else {%>
+
             <a href="/login">
                 <span class="button"> Kirjautuminen </span>
             </a>
-        <% } %>
+            <a href="/users/new">
+                <span class="button"> Rekisteröinti </span>
+            </a>
+            <% } %>
         </div>
     </div>
->>>>>>> Stashed changes
+
+
+</div>
+</div>

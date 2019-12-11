@@ -50,11 +50,15 @@ router.use((req, res, next) => {
 
 router.get("/", homeController.showHome);
 router.get("/login", homeController.showLogin);
+router.post("/login", usersController.authenticate,usersController.redirectView);
+
 router.get("/reserve", homeController.showReserve);
 router.post("/reserve/new", varausController.saveReservation)
 router.get("/reservations", varausController.getAllReservations);
 router.get("/contacts", homeController.showContacts);
 router.get("/rules", homeController.showRules);
+router.get("/error", homeController.showError);
+
 
 
 router.get("/users", usersController.index, usersController.indexView);
@@ -65,14 +69,6 @@ router.put("/users/:id/update", usersController.update, usersController.redirect
 router.delete("/users/:id/delete", usersController.delete, usersController.redirectView);
 router.get("/users/:id", usersController.show, usersController.showView);
 
-<<<<<<< Updated upstream
-router.post("/users/login", usersController.authenticate,usersController.redirectView);
-=======
-
-router.get("/login", usersController.login);
-router.post("/login", usersController.authenticate,usersController.redirectView);
-
->>>>>>> Stashed changes
 
 
 module.exports = router;
