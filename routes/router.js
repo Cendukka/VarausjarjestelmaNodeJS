@@ -64,9 +64,9 @@ router.get("/error", homeController.showError);
 router.get("/users", usersController.index, usersController.indexView);
 router.get("/users/new", usersController.new);
 router.post("/users/create", usersController.create, usersController.redirectView);
-router.get("/users/:id/edit", usersController.edit);
-router.put("/users/:id/update", usersController.update, usersController.redirectView);
-router.delete("/users/:id/delete", usersController.delete, usersController.redirectView);
+// router.get("/users/:id/edit", usersController.edit);
+// router.put("/users/:id/update", usersController.update, usersController.redirectView);
+// router.delete("/users/:id/delete", usersController.delete, usersController.redirectView);
 router.get("/users/:id", usersController.show, usersController.showView);
 
 

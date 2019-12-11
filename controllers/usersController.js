@@ -71,7 +71,7 @@ module.exports = {
   showView: (req, res) => {
     res.render("users/show");
   },
-  edit: (req, res, next) => {
+/*  edit: (req, res, next) => {
     let userId = req.params.id;
     User.findById(userId)
     .then(user => {
@@ -118,7 +118,7 @@ module.exports = {
       console.log(`Error deleting user by ID: ${error.message}`);
       next();
     });
-  },
+  },*/
   login: (req, res) => {
     res.render("/login");
   },
