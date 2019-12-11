@@ -26,11 +26,6 @@ const varausSchema = mongoose.Schema({
     max:19,
     required: true
   }
-},{ collection : 'reservations' });
-
-/*subscriberSchema.methods.getInfo = function() {
-  return `Name: ${this.name} Sport: ${this.sport} Start Time: ${this.startTime} End Time: ${this.endTime}`;
-};*/
-
+},{ collection : 'reservations' })
 
 module.exports = mongoose.model("Varaus", varausSchema);

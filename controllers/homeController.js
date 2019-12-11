@@ -7,6 +7,7 @@ exports.showHome = (req, res) => {
 exports.showLogin = (req, res) => {
     res.render("login");
 };
+//check are you logged in before making reservations
 exports.showReserve = (req, res) => {
     if (req.user) {
         res.render("varaa");
