@@ -11,7 +11,7 @@ body {
   width: 100%;
   height: 110px;
   padding: 20px 0 20px 0;
-  background-color: #96C0CE;
+  background-color: #f2f2f2;
   border-bottom: solid 8px #525564;
   box-shadow: 10px 10px 10px #ccc;
   position: absolute;
@@ -83,4 +83,23 @@ img {
 }
 .row{
   padding: 2% 5%;
+}
+.middle{
+  text-align: center;
+}
+
+#navbarButtons{
+  float:right;
+  position:relative;
+  left:-50%;
+  text-align:left;
+}
+#navbarButtons ul{
+  list-style:none;
+  position:relative;
+  left:50%;
+}
+
+#navbarButtons li{
+  float:left;position:relative;
 }

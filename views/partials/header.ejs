@@ -1,6 +1,67 @@
-<div id="nav">
+
+<nav class="navbar navbar-default">
+        <h1 id="title" class="middle">Kupittaan urheiluhalli</h1>
+    
+    <div class="container-fluid">
+        <% if (loggedIn) { %>
+            <a class="navbar-brand" href="<%= `/users/${currentUser._id}`%>">Hei, <%= currentUser.fullName %>!</a>
+        <%} %>
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+            
+        </div>
+        <div class="collapse navbar-collapse " id="navbarButtons">
+            <ul class="nav navbar-nav">
+                    <li><a href="/">
+                    
+                        <span class="button">Home</span>
+                    </a></li>
+                    <li><a href="/reserve">
+                        <span class="button"> Varaa </span>
+                    </a></li>
+                    <li><a href="/reservations">
+                        <span class="button"> Varaukset </span>
+                    </a></li>
+                    <li><a href="/contacts">
+                        <span class="button"> Yhteystiedot </span>
+                    </a></li>
+                    <li><a href="/rules">
+                        <span class="button"> Säännöt </span>
+                    </a></li>
+                    <% if (loggedIn) { %>
+                        <li><a href="/logout"><span class="button"> Log out </span></a></li>
+                    <%} else {%>
+                 <li><a href="/login">
+                    <span class="button"> Kirjaudu</span>
+                </a></li>
+                <li><a href="/users/new">
+                    <span class="button"> Rekisteröinti </span>
+                </a></li>
+                <% } %>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+
+<!--<div id="nav">
     <div class="col-sm nav-align">
-        <h1 id="title">Kupittaan urheiluhalli</h1>
+        <div class="col-sm-11">
+            <h1 id="title">Kupittaan urheiluhalli</h1>
+        </div>
+        <div class="col-sm-1">
+            <% if (loggedIn) { %>
+                Hei, <a href="<%= `/users/${currentUser._id}`%>"><%= currentUser.fullName %></a>!
+            <%} %>
+        </div>
     </div>
     <div class="col-sm nav-align">
         <a href="/">
@@ -19,7 +80,6 @@
             <span class="button"> Säännöt </span>
         </a>
         <% if (loggedIn) { %>
-        Hei, <a href="<%= `/users/${currentUser._id}`%>"><%= currentUser.fullName %></a>! 
             <a href="/logout"><span class="button"> Log out </span></a>
         <%} else {%>
      <a href="/login">
@@ -34,4 +94,4 @@
 
 
 </div>
-</div>
+</div>-->

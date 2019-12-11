@@ -31,6 +31,7 @@
     <div class="form-group">
       <label for="inputPassword">Aloitus aika</label>
       <select class="form-control" id="startTime" name="startTime" required>
+        <option type="number" value="">Select</option>
         <option type="number" value="12">12:00</option>
         <option type="number" value="13">13:00</option>
         <option type="number" value="14">14:00</option>
@@ -44,6 +45,7 @@
     <div class="form-group">
       <label for="inputEmail">Lopetus aika: </label>
       <select class="form-control" id="endTime" name="endTime">
+        <option type="number" value="">Select</option>
         <option type="number" value="13">13:00</option>
         <option type="number" value="14">14:00</option>
         <option type="number" value="15">15:00</option>
@@ -55,7 +57,7 @@
     </div>
     <br>
     <br>
-    <button type="submit" onclick="return confirm('Oletko varma? Varaus on sitova.')">Varaa</button>
+    <button class="btn btn-lg btn-primary" type="submit" onclick="return confirm('Oletko varma? Varaus on sitova.')">Varaa</button>
 
   </form>
 </div>
