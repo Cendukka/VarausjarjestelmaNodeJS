@@ -69,6 +69,7 @@ exports.saveReservation = (req, res) => {
         res.render("kiitos", { result: result, date: formatedDate});
       })
       .catch(error => {
+        //if (error) res.send(error);
         if (error) res.render("error");
       });
   }
