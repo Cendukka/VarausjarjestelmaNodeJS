@@ -2,20 +2,17 @@
 
 
 exports.showHome = (req, res) => {
-    console.log("jou"+req.user)
-    if (req.user) {
-        console.log("jou"+req.user)
-        res.render("index");
-    } else {
-        res.redirect('/login');
-    }
-    
+    res.render("index");
 };
 exports.showLogin = (req, res) => {
     res.render("login");
 };
 exports.showReserve = (req, res) => {
-    res.render("varaa");
+    if (req.user) {
+        res.render("varaa");
+    } else {
+        res.redirect('/login');
+    }
 };
 exports.showReservations = (req, res) => {
     res.render("varaukset");
