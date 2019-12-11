@@ -42,10 +42,11 @@ module.exports = {
     User.register(newUser, req.body.password, (error, user) => { 
       if (user) { 
         req.flash("success", `${user.fullName}'s account created successfully!`); 
-        res.locals.redirect = "/users"; 
+        res.locals.redirect = `/users/`; 
         next(); 
       } else { 
-        req.flash("error", `Failed to create user account because: ${error.message}.`); 
+        req.flash("error", `Failed to create user account because: ${error.message}.`);
+        console.log(`Failed to create user account because: ${error.message}.`);
         res.locals.redirect = "/users/new"; 
         next(); 
       } 
@@ -61,6 +62,7 @@ module.exports = {
     User.findById(userId)
     .then(user => {
       res.locals.user = user;
+      console.log(userId);
       next();
     })
     .catch(error => {
@@ -79,7 +81,13 @@ module.exports = {
     failureFlash: "Failed to login.",
     successRedirect: "/",
     successFlash: "Logged in!"
-  })
+  }),
+    logout: (req, res, next) => {
+    req.logout();
+    req.flash("success", "You have been logged out!");
+    res.locals.redirect = "/";
+    next();
+  }
   
 
 };

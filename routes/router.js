@@ -55,16 +55,16 @@ router.get("/", homeController.showHome);
 
 router.get("/login", homeController.showLogin);
 router.post("/login", usersController.authenticate,usersController.redirectView);
+router.get("/logout", usersController.logout, usersController.redirectView);
+
 
 router.get("/reserve", homeController.showReserve);
-router.post("/reserve/new", varausController.saveReservation)
+router.post("/reserve/new", varausController.saveReservation,varausController.redirectView)
 router.get("/reservations", varausController.getAllReservations);
 router.get("/contacts", homeController.showContacts);
 router.get("/rules", homeController.showRules);
 router.post("/users/login", usersController.authenticate);
 router.get("/error", homeController.showError);
-
-
 
 router.get("/users", usersController.index, usersController.indexView);
 router.get("/users/new", usersController.new);
