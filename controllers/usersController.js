@@ -1,7 +1,8 @@
 "use strict";
 
+const passport = require("passport");
+
 const User = require("../models/user"),
-passport = require("passport"),
 getUserParams = body => {
   return {
     name: {
@@ -36,18 +37,18 @@ module.exports = {
     res.render("users/new");
   },
   create: (req, res, next) => {
-    if (req.skip) next();
-    let newUser = new User(getUserParams(req.body));
-    User.register(newUser, req.body.password, (error, user) => {
-      if (user) {
-        req.flash("success", `${user.fullName}'s account created successfully!`);
-        res.locals.redirect = "/users";
-        next();
-      } else {
-        req.flash("error", `Failed to create user account because: ${error.message}.`);
-        res.locals.redirect = "/users/new";
-        next();
-      }
+    if (req.skip) next(); 
+    let newUser = new User(getUserParams(req.body)); 
+    User.register(newUser, req.body.password, (error, user) => { 
+      if (user) { 
+        req.flash("success", `${user.fullName}'s account created successfully!`); 
+        res.locals.redirect = "/users"; 
+        next(); 
+      } else { 
+        req.flash("error", `Failed to create user account because: ${error.message}.`); 
+        res.locals.redirect = "/users/new"; 
+        next(); 
+      } 
     });
   },
   redirectView: (req, res, next) => {
@@ -70,7 +71,7 @@ module.exports = {
   showView: (req, res) => {
     res.render("users/show");
   },
-  edit: (req, res, next) => {
+/*  edit: (req, res, next) => {
     let userId = req.params.id;
     User.findById(userId)
     .then(user => {
@@ -117,12 +118,12 @@ module.exports = {
       console.log(`Error deleting user by ID: ${error.message}`);
       next();
     });
-  },
+  },*/
   login: (req, res) => {
     res.render("/login");
   },
   authenticate: passport.authenticate("local", {
-    failureRedirect: "/users/login",
+    failureRedirect: "/error",
     failureFlash: "Failed to login.",
     successRedirect: "/",
     successFlash: "Logged in!"

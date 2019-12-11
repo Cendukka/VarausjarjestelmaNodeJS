@@ -4,7 +4,13 @@
     <div class="form-group">
       <h2>Luo uusi varaus:</h2>
       <label for="inputName">Nimi:</label>
-      <input class="form-control" type="text" name="name" id="inputName"  placeholder="Nimesi" autofocus required>
+      <% if (loggedIn) { %>
+        <input class="form-control" type="text" name="name" id="inputName"  value="<%= currentUser.firstName %></a>" autofocus required>
+
+      <%} else {%>
+        <input class="form-control" type="text" name="name" id="inputName"  placeholder="Nimesi" autofocus required>
+
+      <% } %>
     </div>
 
     <div class="form-group">
@@ -26,31 +32,31 @@
     <div class="form-group">
       <label for="inputPassword">Aloitus aika</label>
       <select class="form-control" id="startTime" name="startTime" required>
-        <option type="number" value="12">12</option>
-        <option type="number" value="13">13</option>
-        <option type="number" value="14">14</option>
-        <option type="number" value="15">15</option>
-        <option type="number" value="16">16</option>
-        <option type="number" value="17">17</option>
-        <option type="number" value="18">18</option>
+        <option type="number" value="12:00">12:00</option>
+        <option type="number" value="13:00">13:00</option>
+        <option type="number" value="14:00">14:00</option>
+        <option type="number" value="15:00">15:00</option>
+        <option type="number" value="16:00">16:00</option>
+        <option type="number" value="17:00">17:00</option>
+        <option type="number" value="18:00">18:00</option>
       </select>
     </div>
 
     <div class="form-group">
       <label for="inputEmail">Lopetus aika: </label>
       <select class="form-control" id="endTime" name="endTime">
-        <option type="number" value="13">13</option>
-        <option type="number" value="14">14</option>
-        <option type="number" value="15">15</option>
-        <option type="number" value="16">16</option>
-        <option type="number" value="17">17</option>
-        <option type="number" value="18">18</option>
-        <option type="number" value="19">19</option>
+        <option type="number" value="13:00">13:00</option>
+        <option type="number" value="14:00">14:00</option>
+        <option type="number" value="15:00">15:00</option>
+        <option type="number" value="16:00">16:00</option>
+        <option type="number" value="17:00">17:00</option>
+        <option type="number" value="18:00">18:00</option>
+        <option type="number" value="19:00">19:00</option>
       </select>
     </div>
-      <br>
-      <br>
-      <button type="submit" alert="Oletko varma? Varaus on sitova.">Varaa</button>
-    
+    <br>
+    <br>
+    <button type="submit" alert="Oletko varma? Varaus on sitova.">Varaa</button>
+
   </form>
 </div>

@@ -26,3 +26,6 @@ exports.showContacts = (req, res) => {
 exports.showRules = (req, res) => {
     res.render("saannot");
 };
+exports.showError = (req, res) => {
+    res.render("error");
+};
