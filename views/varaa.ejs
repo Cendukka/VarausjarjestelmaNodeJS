@@ -4,12 +4,11 @@
     <div class="form-group">
       <h2>Luo uusi varaus:</h2>
       <label for="inputName">Nimi:</label>
+      <!-- Checks if user is logged. If is, fills the name field with FullName, else give empty field -->
       <% if (loggedIn) { %>
         <input class="form-control" type="text" name="name" id="inputName"  value="<%= currentUser.fullName %>" autofocus required>
-
       <%} else {%>
         <input class="form-control" type="text" name="name" id="inputName"  placeholder="Nimesi" autofocus required>
-
       <% } %>
     </div>
 

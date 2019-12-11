@@ -66,7 +66,9 @@ exports.saveReservation = (req, res) => {
       .then(result => {
         let unformatedDate = moment(result.date);
         let formatedDate = unformatedDate.format("DD/MM/YYYY");
+        res.locals.redirect = "/varaukset"; 
         res.render("kiitos", { result: result, date: formatedDate});
+
       })
       .catch(error => {
         //if (error) res.send(error);
@@ -74,3 +76,8 @@ exports.saveReservation = (req, res) => {
       });
   }
 };
+exports.redirectView = (req, res, next) => {
+    let redirectPath = res.locals.redirect;
+    if (redirectPath !== undefined) res.redirect(redirectPath);
+    else next();
+  };
