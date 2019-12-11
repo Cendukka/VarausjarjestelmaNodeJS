@@ -3,9 +3,7 @@
         <h1 id="title" class="middle">Kupittaan urheiluhalli</h1>
     
     <div class="container-fluid">
-        <% if (loggedIn) { %>
-            <a class="navbar-brand" href="<%= `/users/${currentUser._id}`%>">Hei, <%= currentUser.fullName %>!</a>
-        <%} %>
+        
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarButtons" aria-expanded="false">
@@ -46,7 +44,11 @@
                 <% } %>
             </ul>
         </div>
+        
     </div>
+    <% if (loggedIn) { %>
+        <a class="navbar-brand" href="<%= `/users/${currentUser._id}`%>">Hei, <%= currentUser.fullName %>!</a>
+    <%} %>
 </nav>
 
 
